@@ -19,7 +19,7 @@
     - name: enabling MongoDB
       ansible.builtin.service:
         name: mongod
-        state: enabled
+        enabled: yes
 
     - name: Aloow remote access
       ansible.builtin.replace:
