@@ -14,12 +14,12 @@
 
     - name: starting mongoDB
       ansible.builtin.service:
-        name: mongodb-org
+        name: mongodb
         state: started
     - name: enabling MongoDB
       ansible.builtin.service:
-        name: enabled
-        state: yes
+        name: mongod
+        state: enabled
 
     - name: Aloow remote access
       ansible.builtin.replace:
