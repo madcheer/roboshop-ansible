@@ -2,8 +2,11 @@
   hosts: catalogue
   become: yes
   tasks:
-    - name: Disbling default version and enbaing Nodjs:18 varsion
-      ansible.builtin.command: "dnf module disable nodejs -y ; dnf module enable nodejs:18 -y"
+    - name: Disbling default version and enbaing Nodjs:18 version
+      ansible.builtin.command: dnf module disable nodejs -y
+
+    - name: Disbling default version and enbaing Nodjs:18 version
+      ansible.builtin.command: dnf module enable nodejs:18 -y
       
     - name: Installing nodejs:18
       ansible.builtin.dnf:
