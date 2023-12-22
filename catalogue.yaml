@@ -33,11 +33,12 @@
         dest: /app
         remote_src: yes
 
-    - name: install npm
-      ansible.builtin.service:
-        name: npm
-        state: present
+    - name: install npm dependencies
+      ansible.builtin.command: npm install
+      args:
+        chdir: /app
 
+      
     - name: copying catalogue service file
       ansible.builtin.copy:
         src: /home/centos/roboshop-ansible/catalogue.service
