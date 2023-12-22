@@ -47,9 +47,11 @@
     - name: reload the daemon
       ansible.builtin.systemd_service:
         daemon_reload: true
+
+  #start the service after the data is loaded
             
     - name: enable catalogue service
-      ansible.builtin.command: catalogue
+      ansible.builtin.command: systemctl enable catalogue
 
     - name: start the catalogue service
       ansible.builtin.service:
@@ -61,13 +63,13 @@
         src: /home/centos/roboshop-ansible/mongo.repo
         dest: /etc/yum.repos.d/mongo.repo
 
-    - name: Installing nodejs:18
+    - name: Installing mongodb client
       ansible.builtin.dnf:
         name: mongodb-org-shell
         state: present
 
     - name: Load the schema
-      ansible.builtin.command: mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+      ansible.builtin.command: mongo --host mongodb.madcheer.online </app/schema/catalogue.js
 
 
 
