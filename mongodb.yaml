@@ -1,0 +1,35 @@
+- name: mongoDB
+  hosts: mongodb
+  become: yes
+  tasks:
+    - name: copying mongodb repo
+      ansible.builtin.copy:
+        src: /home/centos/roboshop-ansible/mongo.repo
+        dest: /etc/yum.repos.d/mongo.repo
+
+    - name: Installing MongoDB
+      ansible.builtin.package:
+        name: mongodb-org
+        state: present
+
+    - name: starting mongoDB
+      ansible.builtin.service:
+        name: mongodb-org
+        state: started
+    - name: enabling MongoDB
+      ansible.builtin.command:
+        name: enabled
+        state: yes
+
+    - name: Aloow remote access
+      ansible.builtin.replace:
+        path: /etc/mongod.conf
+        regexp: '127.0.0.0'
+        replace: '0.0.0.0'
+
+    - name: Restarting mongodb service
+      ansible.builtin.service:
+       name: mongod
+       state: restarted
+
+    
