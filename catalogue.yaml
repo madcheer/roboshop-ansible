@@ -40,8 +40,8 @@
 
       
     - name: copying catalogue service file
-      ansible.builtin.copy:
-        src: /home/centos/roboshop-ansible/catalogue.service
+      ansible.builtin.copy:/home/centos/roboshop-ansible/
+        src: catalogue.service
         dest: /etc/systemd/system/
 
     - name: reload the daemon
