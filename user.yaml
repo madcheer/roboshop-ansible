@@ -1,0 +1,13 @@
+- name: user module
+  hosts: user
+  become: yes
+  tasks: 
+  - name: disable current default nodeJS version to Install
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable nodejs:18 version
+    ansible.builtin.dnf: 
+     name: nodejs:18
+     state: present
+
+  
