@@ -37,11 +37,10 @@
       ansible.builtin.command: npm install
       args:
         chdir: /app
-
       
     - name: copying catalogue service file
-      ansible.builtin.copy:/home/centos/roboshop-ansible/
-        src: catalogue.service
+      ansible.builtin.copy: 
+        src: /home/centos/roboshop-ansible/catalogue.service
         dest: /etc/systemd/system/
 
     - name: reload the daemon
