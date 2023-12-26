@@ -62,15 +62,15 @@
 
     # get the catagiries count
 
-    - name: get the catagiris count
-      ansible.builtin.command: mongo --host mongodb.daws76s.online --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+    - name: get the catagoris count
+      ansible.builtin.command: mongo --host mongodb.madcheer.online --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
       register: product_count
 
     - name: Load the schema
       ansible.builtin.shell: mongo --host mongodb.madcheer.online < /app/schema/catalogue.js
 
     - name: load catalogue data
-      ansible.builtin.command: mongo --host mongodb.daws76s.online < /app/schema/catalogue.js
+      ansible.builtin.command: mongo --host mongodb.madcheer.online < /app/schema/catalogue.js
       when: product_count.stdout == "0" # keep double quotes
 
 
