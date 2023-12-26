@@ -24,7 +24,7 @@
     - name: Aloow remote access
       ansible.builtin.replace:
         path: /etc/mongod.conf
-        regexp: '127.0.0.0'
+        regexp: '127.0.0.1'
         replace: '0.0.0.0'
 
     - name: Restarting mongodb service
