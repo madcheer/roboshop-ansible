@@ -9,7 +9,7 @@
     ansible.builtin.command: dnf module enable nodejs:18 -y
     
   - name: installing nodejs:18
-    ansible.builtin.service: 
+    ansible.builtin.dnf: 
       name: nodejs
       state: present
   
