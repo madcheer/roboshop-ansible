@@ -33,14 +33,12 @@
     
   - name: unzip the file to app directory
     ansible.builtin.unarchive:
-        src: /tmp/user.zip
-        dest: /app
-        remote_src: yes
+      src: /tmp/user.zip
+      dest: /app
+      remote_src: yes
 
   - name: install npm dependencies
-    ansible.builtin.package:
-      name: npm
-      state: present
+    ansible.builtin.command: npm install
       args:
         chdir: /app
 
