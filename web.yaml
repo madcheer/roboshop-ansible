@@ -32,7 +32,7 @@
   - name: Extract the frontend content.
     ansible.builtin.unarchive: 
       src: /tmp/web.zip
-      dest: cd /usr/share/nginx/html
+      dest: /usr/share/nginx/html
       remote_src: yes
 
   - name: copy roboshop.conf file it is a reverse proxy
