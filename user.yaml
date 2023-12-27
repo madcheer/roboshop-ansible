@@ -73,5 +73,5 @@
   - name: enabale and start the user service
     ansible.builtin.service:
       name: user
-      state: started
+      state: restarted
       enabaled: yes
