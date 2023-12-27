@@ -74,4 +74,4 @@
     ansible.builtin.service:
       name: user
       state: restarted
-      enabaled: yes
+      enabled: yes
